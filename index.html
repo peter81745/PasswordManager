@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>PasswordManager</title>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <form id="create">
+        <div class="col s12 m7">
+          <h2 class="header">PasswordManager</h2>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <div class="row">
+                  <div class="col s5">
+                    <label>Name:</label>
+                    <input type="text" id="name" placeholder="Name">
+                  </div>
+                  <div class="col s5">
+                    <label>Password:</label>
+                    <input type="password" id="key" placeholder="Password">
+                  </div>
+                  <div class="col s2">
+                    <button type="submit" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <table>
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Copy</th>
+              <th>Delete</th>
+          </tr>
+        </thead>
+
+        <tbody id="tableContent">
+          <tr>
+            <td><a href="#" onclick='window.mainWindow.manual_update();'>Show Passwords</a></td>
+            <td>/</td>
+            <td>/</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+    </div>
+    <script>
+    window.mainWindow.manual_update();
+    document.getElementById('create').addEventListener('submit', submit);
+    function submit(e) {
+      e.preventDefault();
+      var name = document.getElementById("name").value;
+      var key = document.getElementById("key").value;
+      window.mainWindow.create(name, key);
+    }
+    function del(value) {
+      window.mainWindow.delete(value);
+    }
+    function copy(value) {
+      window.mainWindow.copy(value);
+    }
+    window.mainWindow.receive("update_gui", (data) => {
+      document.getElementById("tableContent").innerHTML = data;
+    });
+    </script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    </body>
+  </body>
+</html>

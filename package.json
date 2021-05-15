@@ -1,0 +1,30 @@
+{
+  "name": "PasswordManager",
+  "version": "1.0.0",
+  "description": "A very small PasswordManager using Electron and Crypto-JS",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peter12908/passwordmanager.git"
+  },
+  "keywords": [
+    "PasswordManager",
+    "Crypto"
+  ],
+  "author": "CuzImPeter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peter12908/passwordmanager/issues"
+  },
+  "homepage": "https://github.com/peter12908/passwordmanager#readme",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "electron": "^12.0.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "sqlite3": "^5.0.2"
+  }
+}

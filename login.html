@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>PasswordManager | Login</title>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
+  </head>
+  <body>
+    <div class="container">
+    <form id="login">
+        <!--<h1>PasswordManager</h1>
+        <input type="password" id="key" placeholder="Your Password">
+        <button type="submit" class="waves-effect waves-light btn" name="button">Button</button>-->
+
+        <div class="col s12 m7">
+          <h2 class="header">PasswordManager</h2>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <label>Password:</label>
+                <input type="password" id="key" placeholder="Your Password" required="">
+              </div>
+              <div class="card-action">
+                <button type="submit" class="waves-effect waves-light btn" name="button">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <span id="errorBox"></span>
+    </div>
+    <script>
+    document.getElementById('login').addEventListener('submit', submit);
+    function submit(e) {
+      e.preventDefault();
+      var key = document.getElementById("key").value;
+      window.loginWindow.login(key);
+    }
+    window.loginWindow.receive("incorrect-login", (data) => {
+      document.getElementById('errorBox').innerHTML = '<div class="card-panel red darken-2">Wrong Password!</div>';
+    });
+    </script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    </body>
+  </body>
+</html>
