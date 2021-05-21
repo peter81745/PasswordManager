@@ -164,11 +164,21 @@ ipcMain.on('login', function(e, key){
   Event which, when called, creates a new Database entry with the provided name and encrypted Password.
 */
 ipcMain.on('new_entry', function(e, name, pw) {
-  db.run(`
-    INSERT OR REPLACE INTO dataTable(name, password) VALUES (?,?)
-  `,[name, CryptoJS.AES.encrypt(pw, encryptionKey).toString()]);
-  // Update the Gui after creating a new Entry
-  new UpdateGUI(mainWindow, db).updateHTMLTable(encryptionKey);
+  if (name == "password") {
+	const win = new BrowserWindow();
+	win.loadURL(url.format({
+		pathname: path.join(__dirname, 'error.html'),
+		protocol: 'file:',
+		slashes: true
+	}));
+	win.setMenu(null);
+  } else {
+	  db.run(`
+		INSERT OR REPLACE INTO dataTable(name, password) VALUES (?,?)
+	  `,[name, CryptoJS.AES.encrypt(pw, encryptionKey).toString()]);
+	  // Update the Gui after creating a new Entry
+	  new UpdateGUI(mainWindow, db).updateHTMLTable(encryptionKey);
+  }
 });
 
 /*
