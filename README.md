@@ -1,4 +1,5 @@
-[![Github All Releases](https://img.shields.io/github/downloads/peter12908/PasswordManager/total.svg)]() 
+[![Github All Releases](https://img.shields.io/github/downloads/peter12908/PasswordManager/total.svg)]()
+<a href="https://www.youtube.com/watch?v=iciQDxmmy2Q"><img alt="YouTube Video Views" src="https://img.shields.io/youtube/views/iciQDxmmy2Q?style=social"></a>
 # PasswordManager
 A very small PasswordManager using Electron and Crypto-JS
 <br>The Default Password is "1234", under the settings tab you can change it.
